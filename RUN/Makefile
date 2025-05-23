@@ -1,4 +1,5 @@
 #Makefile
+PKG=../PKG/mips_pkg.sv
 SIMULATOR=../SIMULATOR/mips.sv
 MODULE=mips
 
@@ -11,7 +12,7 @@ lib :
 	@echo "---------------------------------------------"
 	
 cmp :
-	vlog -coveropt 3 +acc +cover $(SIMULATOR)
+	vlog -coveropt 3 +acc +cover $(PKG) $(SIMULATOR)
 
 sim :
 	vsim -coverage -vopt $(MODULE) +FILE=$(FILE) -sv_seed random -c -do "run -all; exit"

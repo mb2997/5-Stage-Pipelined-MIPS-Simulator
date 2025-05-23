@@ -1,6 +1,6 @@
 # vsim -coverage -vopt mips "+FILE=sample.txt" -sv_seed random -c -do "run -all; exit" 
-# Start time: 11:39:16 on May 23,2025
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 16:15:27 on May 23,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
 # //
@@ -16,29 +16,83 @@
 # //  18 U.S.C. Section 1905.
 # //
 # Loading sv_std.std
+# Loading work.mips_pkg(fast)
+# Loading work.mips_sv_unit(fast)
 # Loading work.mips(fast)
-# Sv_Seed = 718810738
+# Sv_Seed = 1843398046
 # run -all
 # Input file name provided: sample.txt
 # Attempting to open file at path: ../sample.txt
 # File opened successfully!
-# ------------------ Instruction Count: 1 ------------------
-# 
+# ------------------------------------------------------------
+#                    Instruction Count: 1                   
+# ------------------------------------------------------------
 # Fetched Instruction: 040103E8
 # 
-# ------------------ Instruction Count: 2 ------------------
-# 
+# inst_int  = 67175400
+# inst_bin  = 00000100000000010000001111101000
+# It's ADDI Instruction
+# -------------------------------------------
+#                    I-TYPE                  
+# -------------------------------------------
+# 		OPCODE: 000001			
+# 		Rs:     00000			
+# 		Rt:     00001			
+# 		Imm.:   0000001111101000			
+# -------------------------------------------
+# ------------------------------------------------------------
+#                    Instruction Count: 2                   
+# ------------------------------------------------------------
 # Fetched Instruction: 040204B0
 # 
-# ------------------ Instruction Count: 3 ------------------
-# 
+# inst_int  = 67241136
+# inst_bin  = 00000100000000100000010010110000
+# It's ADDI Instruction
+# -------------------------------------------
+#                    I-TYPE                  
+# -------------------------------------------
+# 		OPCODE: 000001			
+# 		Rs:     00000			
+# 		Rt:     00010			
+# 		Imm.:   0000010010110000			
+# -------------------------------------------
+# ------------------------------------------------------------
+#                    Instruction Count: 3                   
+# ------------------------------------------------------------
 # Fetched Instruction: 00003800
 # 
-# ------------------ Instruction Count: 4 ------------------
-# 
+# inst_int  = 14336
+# inst_bin  = 00000000000000000011100000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 		OPCODE: 000000			
+# 		Rs:     00000			
+# 		Rt:     00000			
+# 		Rd:     00111			
+# 		Shamt:  00000			
+# 		Funct:  000000			
+# -------------------------------------------
+# ------------------------------------------------------------
+#                    Instruction Count: 4                   
+# ------------------------------------------------------------
 # Fetched Instruction: 00004000
+# inst_int  = 16384
+# inst_bin  = 00000000000000000100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 		OPCODE: 000000			
+# 		Rs:     00000			
+# 		Rt:     00000			
+# 		Rd:     01000			
+# 		Shamt:  00000			
+# 		Funct:  000000			
+# -------------------------------------------
 # File closed...
-# ** Note: $finish    : ../SIMULATOR/mips.sv(61)
+# ** Note: $finish    : ../SIMULATOR/mips.sv(71)
 #    Time: 70 ns  Iteration: 1  Instance: /mips
-# End time: 11:39:19 on May 23,2025, Elapsed time: 0:00:03
+# End time: 16:15:30 on May 23,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0

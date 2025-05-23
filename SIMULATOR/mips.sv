@@ -1,3 +1,7 @@
+`timescale 1ns/1ps
+
+import mips_pkg::*;
+
 module mips;
 
     // Declare variables
@@ -49,8 +53,14 @@ module mips;
         begin
             @(posedge clk);
             void'($fgets(line, input_file_open));
-            $display("------------------ Instruction Count: %0d ------------------\n", instruction_cnt);
+            $display("------------------------------------------------------------");
+            $display("                   Instruction Count: %0d                   ", instruction_cnt);
+            $display("------------------------------------------------------------");
             $display("Fetched Instruction: %s", line);
+
+            //fetch instruction and convert it in binary
+            fetch_instruction_32_bit(line);
+            decode_instruction(instruction_32_bin);
             instruction_cnt++;
         end
 
