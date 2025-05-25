@@ -1,0 +1,53 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/u/sanketp/5-Stage-Pipelined-MIPS-Simulator/RUN
+T_opt
+!s110 1748148609
+VhX[oE<`Enocd78NR8H7j32
+04 4 4 work mips fast 0
+=1-525400b63b2a-6832a181-1e975-7b02
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.2;79
+vmips
+2../SIMULATOR/mips.sv
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1748148607
+!i10b 1
+!s100 4RL85W>zTN]QeoIaKJaZe2
+IZ:flH_F:KU:4H[RWSl:n_0
+S1
+R1
+w1748147329
+8../SIMULATOR/mips.sv
+F../SIMULATOR/mips.sv
+!i122 0
+L0 1 65
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2024.2;79
+r1
+!s85 0
+31
+!s108 1748148606.000000
+!s107 ../SIMULATOR/mips.sv|
+!s90 -lint|-coveropt|3|+acc|+cover|../SIMULATOR/mips.sv|
+!i113 0
+!s102 -coveropt 3 +cover
+o-lint -coveropt 3 +acc +cover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
