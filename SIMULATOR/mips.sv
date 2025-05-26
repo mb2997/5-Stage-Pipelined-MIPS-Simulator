@@ -1,3 +1,7 @@
+`timescale 1ns/1ps
+
+import mips_pkg::*;
+
 module mips;
 
     // Declare variables
@@ -6,7 +10,8 @@ module mips;
     int input_file_open;
     string line;
     bit clk;
-    longint instruction_cnt = 1;
+    
+    longint last_idx;
 
     initial
     begin
@@ -17,7 +22,8 @@ module mips;
         end
     end
 
-    initial begin
+    initial
+    begin
 
         // Handle command line input
         if($value$plusargs("FILE=%s", file_name))
@@ -44,22 +50,78 @@ module mips;
 
         $display("File opened successfully!");
 
-        // Read and display file contents line by line
+        // // Initialized register files
+        // foreach(reg_files[i])
+        // begin
+        //     reg_files[i] = 'h0;
+        // end
+
+        //Read Memory Image
         while(!$feof(input_file_open))
         begin
-            @(posedge clk);
             void'($fgets(line, input_file_open));
-            $display("------------------ Instruction Count: %0d ------------------\n", instruction_cnt);
-            $display("Fetched Instruction: %s", line);
-            instruction_cnt++;
+            //Convert hex string to longint using %h
+            converted = $sscanf(line, "%h", instruction_int);
+            if (converted != 1)
+            begin
+                $display("Error: could not convert line to integer.");
+            end
+            else
+                memory.push_back(instruction_int);
         end
+
+        last_idx = memory.size()-1;
+
 
         // Close file
         $fclose(input_file_open);
         $display("File closed...");
 
+        // Processing Loop
+        repeat(last_idx+1)
+        //repeat(20)
+        begin
+
+            @(posedge clk);
+            fetch_instruction_32_bit(line);
+
+            @(posedge clk);
+            decode_instruction(instruction_32_bin);
+
+            @(posedge clk);
+            execute_instruction();
+            
+            @(posedge clk);
+            if(op_code == 6'b001100 || op_code == 6'b001101)
+                memory_access(effective_addr);
+            
+            @(posedge clk);
+            if(r_type_or_i_type == 1)
+            begin
+                if(op_code != 6'b001101 && op_code != 6'b001110 && op_code != 6'b001111 && op_code != 6'b010000 && op_code != 6'b010001)
+                    write_back(rt);
+            end
+            else if(r_type_or_i_type == 0)
+                write_back(rd);
+
+            instruction_cnt++;
+
+        end
         $finish;
 
     end
 
-endmodule : mips
+    final
+    begin
+        foreach(reg_files[i])
+        begin
+            $display("REG_FILES[%0d] = %0d", i, reg_files[i]);
+        end
+        $display("Total Instructions = %0d", instruction_cnt);
+        // foreach(memory[i])
+        // begin
+        //     $display("MEMORY[%0d] = %h", i, memory[i]);
+        // end
+    end
+
+endmodule: mips
