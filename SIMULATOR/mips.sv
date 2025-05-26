@@ -13,7 +13,6 @@ module mips;
     
     longint last_idx;
 
-
     initial
     begin
         clk = 0;
@@ -79,8 +78,8 @@ module mips;
         $display("File closed...");
 
         // Processing Loop
-        // repeat(last_idx+1)
-        repeat(9)
+        repeat(last_idx+1)
+        //repeat(20)
         begin
 
             @(posedge clk);
@@ -93,15 +92,17 @@ module mips;
             execute_instruction();
             
             @(posedge clk);
-            memory_access(effective_addr);
+            if(op_code == 6'b001100 || op_code == 6'b001101)
+                memory_access(effective_addr);
             
             @(posedge clk);
-            if(op_code == 6'b001100)
-                write_back(rt);
+            if(r_type_or_i_type == 1)
+            begin
+                if(op_code != 6'b001101 && op_code != 6'b001110 && op_code != 6'b001111 && op_code != 6'b010000 && op_code != 6'b010001)
+                    write_back(rt);
+            end
             else if(r_type_or_i_type == 0)
                 write_back(rd);
-            else if(r_type_or_i_type == 1)
-                write_back(rt);
 
             instruction_cnt++;
 
@@ -116,10 +117,11 @@ module mips;
         begin
             $display("REG_FILES[%0d] = %0d", i, reg_files[i]);
         end
-        foreach(memory[i])
-        begin
-            $display("MEMORY[%0d] = %h", i, memory[i]);
-        end
+        $display("Total Instructions = %0d", instruction_cnt);
+        // foreach(memory[i])
+        // begin
+        //     $display("MEMORY[%0d] = %h", i, memory[i]);
+        // end
     end
 
 endmodule: mips

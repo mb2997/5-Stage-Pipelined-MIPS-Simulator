@@ -11,9 +11,12 @@ package mips_pkg;
     logic signed [4:0] rs;
     logic signed [4:0] rt;
     logic signed [4:0] rd;
+    logic signed [31:0] data_rs;
+    logic signed [31:0] data_rt;
     bit [4:0] shamt;
     bit [5:0] funct;
-    shortint signed immediate;      
+    shortint signed immediate_offset;      
+    int signed immediate_32_bits;      
     logic r_type_or_i_type;             //0=R-Type, 1=I-Type
 
     longint pc = 0;                     //Program Counter
@@ -22,7 +25,7 @@ package mips_pkg;
     longint instruction_cnt = 1;
 
     // Register Files
-    bit [31:0] reg_files [0:31];      //Register files from $0 to $31, all are 32-bits wide
+    bit [31:0] reg_files [0:31];        //Register files from $0 to $31, all are 32-bits wide
 
     // Memory
     logic [31:0] memory [$];
@@ -51,7 +54,7 @@ package mips_pkg;
         //Cast to 32-bit binary representation
         instruction_32_bin = memory[idx];
 
-        $display("\n %0d: Fetched Instruction = Hex: %h, Bin: %032b", instruction_cnt, instruction_32_bin, instruction_32_bin);
+        $display("\n Current PC: %0d => Fetched Instruction = Hex: %h, Bin: %032b", pc, instruction_32_bin, instruction_32_bin);
 
         pc = pc + 4;
 
@@ -128,7 +131,7 @@ package mips_pkg;
             //Control Flow Instructions
             6'b001110   :   begin
                                 $display("It's BZ Instruction");
-                                r_type_or_i_type = 0;
+                                r_type_or_i_type = 1;
                             end
             6'b001111   :   begin
                                 $display("It's BEQ Instruction");
@@ -164,18 +167,23 @@ package mips_pkg;
             $display("\tShamt:  %b (Dec: %0d)\t\t\t", shamt, shamt);
             $display("\tFunct:  %b (Dec: %0d)\t\t\t", funct, funct);
             $display("-------------------------------------------");
+            data_rs = reg_files[rs];
+            data_rt = reg_files[rt];
         end
         else                    //If I-Type
         begin
-            {op_code, rs, rt, immediate} = instruction_32_bin;
+            {op_code, rs, rt, immediate_offset} = instruction_32_bin;
             $display("-------------------------------------------");
             $display("                   I-TYPE                  ");
             $display("-------------------------------------------");
             $display("\tOPCODE: %b (Dec: %0d)\t\t\t", op_code, op_code);
             $display("\tRs:     %b (Dec: %0d)\t\t\t", rs, rs);
             $display("\tRt:     %b (Dec: %0d)\t\t\t", rt, rt);
-            $display("\tImm.:   %b (Dec: %0d)\t\t\t", immediate, immediate);
+            $display("\tImm.:   %b (Dec: %0d)\t\t\t", immediate_offset, immediate_offset);
             $display("-------------------------------------------");
+            data_rs = reg_files[rs];
+            data_rt = reg_files[rt];
+            immediate_32_bits = sign_extend(immediate_offset);
         end
 
     endfunction: decode_instruction
@@ -186,68 +194,85 @@ package mips_pkg;
 
             //Arithmetic Instructions
             6'b000000   :   begin
-                                alu_result = reg_files[rs] + reg_files[rt];
+                                alu_result = data_rs + data_rt;
                             end
             6'b000001   :   begin
-                                alu_result = reg_files[rs] + sign_extend(immediate);
+                                alu_result = data_rs + (immediate_32_bits);
                             end
             6'b000010   :   begin
-                                alu_result = reg_files[rs] - reg_files[rt];
+                                alu_result = data_rs - data_rt;
                             end 
             6'b000011   :   begin
-                                alu_result = reg_files[rs] - sign_extend(immediate);
+                                alu_result = data_rs - (immediate_32_bits);
                             end
             6'b000100   :   begin
-                                alu_result = reg_files[rs] * reg_files[rt];
+                                alu_result = data_rs * data_rt;
                             end
             6'b000101   :   begin
-                                alu_result = reg_files[rs] * sign_extend(immediate);
+                                alu_result = data_rs * (immediate_32_bits);
                             end
 
             //Logical Instructions
             6'b000110   :   begin
-                                alu_result = reg_files[rs] | reg_files[rt];
+                                alu_result = data_rs | data_rt;
                             end
             6'b000111   :   begin
-                                alu_result = reg_files[rs] | sign_extend(immediate);
+                                alu_result = data_rs | (immediate_32_bits);
                             end
             6'b001000   :   begin
-                                alu_result = reg_files[rs] & reg_files[rt];
+                                alu_result = data_rs & data_rt;
                             end
             6'b001001   :   begin
-                                alu_result = reg_files[rs] & sign_extend(immediate);
+                                alu_result = data_rs & (immediate_32_bits);
                             end
             6'b001010   :   begin
-                                alu_result = reg_files[rs] ^ reg_files[rt];
+                                alu_result = data_rs ^ data_rt;
                             end
             6'b001011   :   begin
-                                alu_result = reg_files[rs] ^ sign_extend(immediate);
+                                alu_result = data_rs ^ (immediate_32_bits);
                             end
 
             //Memory Access Instructions
             6'b001100   :   begin
-                                effective_addr = reg_files[rs] + sign_extend(immediate);
+                                effective_addr = (data_rs + (immediate_32_bits))/4;
+                                $display("LWD: Effective Address = %0d", effective_addr);
                             end
             6'b001101   :   begin
-
+                                effective_addr = (data_rs + (immediate_32_bits))/4;
+                                $display("STW: Effective Address = %0d", effective_addr);
                             end
 
             //Control Flow Instructions
             6'b001110   :   begin
-                                $display("It's BZ Instruction");
-                                r_type_or_i_type = 0;
+                                if(data_rs == 0)
+                                begin
+                                    // pc = pc + 4 + (immediate_32_bits << 2)
+                                    pc = pc + (immediate_32_bits << 2);         //Here, pc already contains pc+4 from fetch function
+                                    $display("BZ condition is satisfied, Next Target Address is: %0d", pc);
+                                end
+                                else
+                                begin
+                                    $display("BZ condition is not-satisfied, Next Target Address is: %0d", pc);
+                                end
                             end
             6'b001111   :   begin
-                                $display("It's BEQ Instruction");
-                                r_type_or_i_type = 1;
+                                if(data_rs == data_rt)
+                                begin
+                                    // pc = pc + 4 + (immediate_32_bits << 2)
+                                    pc = pc + (immediate_32_bits << 2);         //Here, pc already contains pc+4 from fetch function
+                                    $display("BEQ condition is satisfied, Next Target Address is: %0d", pc);
+                                end
+                                else
+                                begin
+                                    $display("BEQ condition is not-satisfied, Next Target Address is: %0d", pc);
+                                end
                             end
             6'b010000   :   begin
-                                $display("It's JR Instruction");
-                                r_type_or_i_type = 0;
+                                pc = data_rs;
                             end 
             6'b010001   :   begin
                                 $display("It's HALT Instruction");
-                                $finish;
+                                $stop;
                             end
 
         endcase
@@ -256,16 +281,18 @@ package mips_pkg;
 
     function void memory_access(logic [31:0] effective_addr);
 
-        if(op_code == 6'b001100)
+        if(op_code == 6'b001100)                        //For LW
             mem_data_reg = memory[effective_addr];
+        else if(op_code == 6'b001101)                   //For SW
+            memory[effective_addr] = data_rt;
 
     endfunction
 
     function void write_back(logic signed [31:0] register);
         
-        if(op_code == 6'b001100)
+        if(op_code == 6'b001100)                        //For LW
             reg_files[register] = mem_data_reg;
-        else
+        else                                            //For R-Type
             reg_files[register] = alu_result;
 
     endfunction
