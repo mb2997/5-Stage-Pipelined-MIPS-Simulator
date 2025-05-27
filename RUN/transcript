@@ -1,5 +1,5 @@
 # vsim -coverage -vopt mips "+FILE=sample.txt" -sv_seed random -c -do "run -all; exit" 
-# Start time: 16:30:24 on May 26,2025
+# Start time: 18:13:15 on May 26,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
@@ -19,7 +19,7 @@
 # Loading work.mips_pkg(fast)
 # Loading work.mips_sv_unit(fast)
 # Loading work.mips(fast)
-# Sv_Seed = 505353958
+# Sv_Seed = 417489390
 # run -all
 # Input file name provided: sample.txt
 # Attempting to open file at path: ../sample.txt
@@ -348,7 +348,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -634,7 +647,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -920,7 +946,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -1206,7 +1245,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -1492,7 +1544,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -1778,7 +1843,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -2064,7 +2142,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -2350,7 +2441,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -2636,7 +2740,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -2922,7 +3039,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -3208,7 +3338,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -3494,7 +3637,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -3780,7 +3936,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -4066,7 +4235,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -4352,7 +4534,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -4638,7 +4833,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -4924,7 +5132,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -5210,7 +5431,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -5496,7 +5730,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -5782,7 +6029,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -6068,7 +6328,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -6354,7 +6627,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -6640,7 +6926,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -6926,7 +7225,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -7212,7 +7524,20 @@
 # 	Rt:     00000 (Dec: 0)			
 # 	Imm.:   0000000000000010 (Dec: 2)			
 # -------------------------------------------
-# BZ condition is satisfied, Next Target Address is: 64
+# BZ condition is satisfied, Next Target Address is: 60
+# 
+#  Current PC: 60 => Fetched Instruction = Hex: 01034000, Bin: 00000001000000110100000000000000
+# It's ADD Instruction
+# -------------------------------------------
+#                    R-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 000000 (Dec: 0)			
+# 	Rs:     01000 (Dec: 8)			
+# 	Rt:     00011 (Dec: 3)			
+# 	Rd:     01000 (Dec: 8)			
+# 	Shamt:  00000 (Dec: 0)			
+# 	Funct:  000000 (Dec: 0)			
+# -------------------------------------------
 # 
 #  Current PC: 64 => Fetched Instruction = Hex: 01244800, Bin: 00000001001001000100100000000000
 # It's ADD Instruction
@@ -7283,7 +7608,19 @@
 # 	Rt:     01011 (Dec: 11)			
 # 	Imm.:   0000000000001101 (Dec: 13)			
 # -------------------------------------------
-# BEQ condition is satisfied, Next Target Address is: 88
+# BEQ condition is satisfied, Next Target Address is: 84
+# 
+#  Current PC: 84 => Fetched Instruction = Hex: 34070578, Bin: 00110100000001110000010101111000
+# It's STW Instruction
+# -------------------------------------------
+#                    I-TYPE                  
+# -------------------------------------------
+# 	OPCODE: 001101 (Dec: 13)			
+# 	Rs:     00000 (Dec: 0)			
+# 	Rt:     00111 (Dec: 7)			
+# 	Imm.:   0000010101111000 (Dec: 1400)			
+# -------------------------------------------
+# STW: Effective Address = 350
 # 
 #  Current PC: 88 => Fetched Instruction = Hex: 3408057c, Bin: 00110100000010000000010101111100
 # It's STW Instruction
@@ -7295,7 +7632,7 @@
 # 	Rt:     01000 (Dec: 8)			
 # 	Imm.:   0000010101111100 (Dec: 1404)			
 # -------------------------------------------
-# STW: Effective Address = 363
+# STW: Effective Address = 351
 # 
 #  Current PC: 92 => Fetched Instruction = Hex: 34090580, Bin: 00110100000010010000010110000000
 # It's STW Instruction
@@ -7307,13 +7644,13 @@
 # 	Rt:     01001 (Dec: 9)			
 # 	Imm.:   0000010110000000 (Dec: 1408)			
 # -------------------------------------------
-# STW: Effective Address = 364
+# STW: Effective Address = 352
 # 
 #  Current PC: 96 => Fetched Instruction = Hex: 44000000, Bin: 01000100000000000000000000000000
 # It's HALT Instruction
 # ** Note: $finish    : ../PKG/mips_pkg.sv(146)
-#    Time: 61130 ns  Iteration: 1  Instance: /mips
-# REG_FILES[0] = 50
+#    Time: 63730 ns  Iteration: 1  Instance: /mips
+# REG_FILES[0] = 0
 # REG_FILES[1] = 1200
 # REG_FILES[2] = 1400
 # REG_FILES[3] = 100
@@ -7321,7 +7658,7 @@
 # REG_FILES[5] = 50
 # REG_FILES[6] = 0
 # REG_FILES[7] = 25
-# REG_FILES[8] = 1250
+# REG_FILES[8] = 2550
 # REG_FILES[9] = 1275
 # REG_FILES[10] = 50
 # REG_FILES[11] = 50
@@ -7345,6 +7682,6 @@
 # REG_FILES[29] = 0
 # REG_FILES[30] = 0
 # REG_FILES[31] = 0
-# Total Instructions = 612
-# End time: 16:30:28 on May 26,2025, Elapsed time: 0:00:04
+# Total Instructions = 638
+# End time: 18:13:19 on May 26,2025, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 0
