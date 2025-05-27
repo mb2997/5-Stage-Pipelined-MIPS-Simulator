@@ -70,7 +70,7 @@ module mips;
                 memory.push_back(instruction_int);
         end
 
-        last_idx = memory.size()-1;
+        last_idx = memory.size();
 
 
         // Close file
@@ -78,23 +78,28 @@ module mips;
         $display("File closed...");
 
         // Processing Loop
-        repeat(last_idx+1)
+        repeat(last_idx)
         //repeat(20)
         begin
 
+            reg_files[0] = 0;
             @(posedge clk);
             fetch_instruction_32_bit(line);
 
+            reg_files[0] = 0;
             @(posedge clk);
             decode_instruction(instruction_32_bin);
 
+            reg_files[0] = 0;
             @(posedge clk);
             execute_instruction();
             
+            reg_files[0] = 0;
             @(posedge clk);
             if(op_code == 6'b001100 || op_code == 6'b001101)
                 memory_access(effective_addr);
             
+            reg_files[0] = 0;
             @(posedge clk);
             if(r_type_or_i_type == 1)
             begin
@@ -104,6 +109,7 @@ module mips;
             else if(r_type_or_i_type == 0)
                 write_back(rd);
 
+            reg_files[0] = 0;
             instruction_cnt++;
 
         end

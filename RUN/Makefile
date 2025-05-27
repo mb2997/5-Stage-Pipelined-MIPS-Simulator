@@ -12,7 +12,7 @@ lib :
 	@echo "---------------------------------------------"
 	
 cmp :
-	vlog -coveropt 3 +acc +cover $(PKG) $(SIMULATOR)
+	vlog -lint -coveropt 3 +acc +cover $(PKG) $(SIMULATOR)
 
 sim :
 	vsim -coverage -vopt $(MODULE) +FILE=$(FILE) -sv_seed random -c -do "run -all; exit"

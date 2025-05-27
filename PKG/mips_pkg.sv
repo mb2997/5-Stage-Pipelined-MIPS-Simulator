@@ -167,8 +167,14 @@ package mips_pkg;
             $display("\tShamt:  %b (Dec: %0d)\t\t\t", shamt, shamt);
             $display("\tFunct:  %b (Dec: %0d)\t\t\t", funct, funct);
             $display("-------------------------------------------");
-            data_rs = reg_files[rs];
-            data_rt = reg_files[rt];
+            if(rs == 0)
+                data_rs = 0;
+            else
+                data_rs = reg_files[rs];
+            if(rt == 0)
+                data_rt = 0;
+            else
+                data_rt = reg_files[rt];
         end
         else                    //If I-Type
         begin
@@ -181,8 +187,15 @@ package mips_pkg;
             $display("\tRt:     %b (Dec: %0d)\t\t\t", rt, rt);
             $display("\tImm.:   %b (Dec: %0d)\t\t\t", immediate_offset, immediate_offset);
             $display("-------------------------------------------");
-            data_rs = reg_files[rs];
-            data_rt = reg_files[rt];
+            if(rs == 0)
+                data_rs = 0;
+            else
+                data_rs = reg_files[rs];
+            if(rt == 0)
+                data_rt = 0;
+            else
+                data_rt = reg_files[rt];
+
             immediate_32_bits = sign_extend(immediate_offset);
         end
 
@@ -247,6 +260,7 @@ package mips_pkg;
                                 if(data_rs == 0)
                                 begin
                                     // pc = pc + 4 + (immediate_32_bits << 2)
+                                    pc = pc - 4;
                                     pc = pc + (immediate_32_bits << 2);         //Here, pc already contains pc+4 from fetch function
                                     $display("BZ condition is satisfied, Next Target Address is: %0d", pc);
                                 end
@@ -259,6 +273,7 @@ package mips_pkg;
                                 if(data_rs == data_rt)
                                 begin
                                     // pc = pc + 4 + (immediate_32_bits << 2)
+                                    pc = pc - 4;
                                     pc = pc + (immediate_32_bits << 2);         //Here, pc already contains pc+4 from fetch function
                                     $display("BEQ condition is satisfied, Next Target Address is: %0d", pc);
                                 end
@@ -282,18 +297,35 @@ package mips_pkg;
     function void memory_access(logic [31:0] effective_addr);
 
         if(op_code == 6'b001100)                        //For LW
+        begin
             mem_data_reg = memory[effective_addr];
+        end
         else if(op_code == 6'b001101)                   //For SW
-            memory[effective_addr] = data_rt;
+        begin
+            if(effective_addr == 0)
+                memory[effective_addr] = 0;
+            else
+                memory[effective_addr] = data_rt;
+        end
 
     endfunction
 
     function void write_back(logic signed [31:0] register);
         
         if(op_code == 6'b001100)                        //For LW
-            reg_files[register] = mem_data_reg;
+        begin
+            if(register == 0)
+                reg_files[register] = 0;
+            else
+                reg_files[register] = mem_data_reg;
+        end
         else                                            //For R-Type
-            reg_files[register] = alu_result;
+        begin
+            if(register == 0)
+                reg_files[register] = 0;
+            else
+                reg_files[register] = alu_result;
+        end
 
     endfunction
 
